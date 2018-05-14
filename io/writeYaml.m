@@ -9,6 +9,7 @@ function writeYaml(model,name)
 %
 %   Benjamin Sanchez, 2018-04-11
 %   Simonas Marcisauskas, 2018-04-13
+%   Hao Wang, 2018-05-14
 %
 
 %Check that model is in RAVEN format:
@@ -191,9 +192,7 @@ if isfield(model,fieldName)
             list = strrep(field{pos},' ','');     %Exception for eccodes
             list = strsplit(list,';');
         end
-        if length(list) == 1 && ~strcmp(list{1},'')
-            fprintf(fid,['    ' name ': ' list{1} '\n']);
-        elseif length(list) > 1
+        if ~strcmp(list{1},'')
             fprintf(fid,['    ' name ':\n']);
             for i = 1:length(list)
                 fprintf(fid,['        - ' list{i} '\n']);
