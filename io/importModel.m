@@ -865,10 +865,10 @@ end
 if all(cellfun(@isempty,geneShortNames))
     if isfield(modelSBML,'fbc_geneProduct')
         for i=1:numel(genes)
-            if ~isempty(modelSBML.fbc_geneProduct(i).fbc_label)
-                geneShortNames{i,1}=modelSBML.fbc_geneProduct(i).fbc_label;
-            elseif ~isempty(modelSBML.fbc_geneProduct(i).fbc_name)
+            if ~isempty(modelSBML.fbc_geneProduct(i).fbc_name)
                 geneShortNames{i,1}=modelSBML.fbc_geneProduct(i).fbc_name;
+            elseif ~isempty(modelSBML.fbc_geneProduct(i).fbc_label)
+                geneShortNames{i,1}=modelSBML.fbc_geneProduct(i).fbc_label;
             else
                 geneShortNames{i,1}='';
             end
